@@ -1,22 +1,31 @@
 import { Routes, Route } from "react-router-dom";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import "./route.css";
-import Home from "../pages/Home";
-import PageNotFound from "../pages/PageNotFound";
-import Foods from "../pages/Foods";
-import Cart from "../pages/Cart";
-import Contact from "../pages/Contact";
+import ShimmerEffect from "../components/common/ShimmerEffect";
+const Home = lazy(() => import("../pages/Home"));
+const PageNotFound = lazy(() => import("../pages/PageNotFound"));
+const Foods = lazy(() => import("../pages/Foods"));
+const Cart = lazy(() => import("../pages/Cart"));
+const Contact = lazy(() => import("../pages/Contact"));
 
 function AllRoutes() {
 	return (
 		<div className="main-body">
-			<Routes>
-				<Route path="/" exact element={<Home />} />
-				<Route path="/foods" exact element={<Foods />} />
-				<Route path="/cart" exact element={<Cart />} />
-				<Route path="/contact" exact element={<Contact />} />
-				<Route path="*" element={<PageNotFound />} />
-			</Routes>
+			<Suspense
+				fallback={
+					<div>
+						<ShimmerEffect />
+					</div>
+				}
+			>
+				<Routes>
+					<Route path="/" exact element={<Home />} />
+					<Route path="/foods" exact element={<Foods />} />
+					<Route path="/cart" exact element={<Cart />} />
+					<Route path="/contact" exact element={<Contact />} />
+					<Route path="*" element={<PageNotFound />} />
+				</Routes>
+			</Suspense>
 		</div>
 	);
 }

@@ -6,11 +6,11 @@ import Header from "../header/Header";
 function Layout() {
 	return (
 		<>
-			<Footer />
 			<Header />
 			<div>
 				<AllRoutes />
 			</div>
+			<Footer />
 		</>
 	);
 }

@@ -1,0 +1,294 @@
+@media only screen and (min-width: 1020px) {
+	.home-flex {
+		width: 100%;
+		border-radius: 20px;
+		background-image: url("../images/home-back.jpg");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		display: flex;
+		padding: 10px;
+	}
+	.home-left {
+		margin-top: 100px;
+		width: 50%;
+		display: block;
+		padding: 50px;
+	}
+	.home-left h5 {
+		width: 90%;
+		font-size: 25px;
+		font-weight: bold;
+		color: rgb(224, 26, 86);
+	}
+	.home-left h1 {
+		font-size: 60px;
+	}
+	.home-left button {
+		display: flex;
+		margin-top: 30px;
+		color: white;
+		border: none;
+		border-radius: 10px;
+		padding: 10px;
+		background-color: rgb(224, 26, 86);
+		font-weight: bold;
+		font-size: 18px;
+		transition: transform 500ms ease-in-out 25ms;
+	}
+	.home-left button:hover {
+		transform: scale(1.02);
+	}
+	.home-left button span {
+		margin-top: 6px;
+	}
+
+	.home-image {
+		margin-top: 100px;
+		width: 50%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+		margin-left: 100px;
+		transition: transform 500ms ease-in-out 25ms;
+	}
+	.home-image:hover {
+		/* transform: translateX(23px) translateY(0px); */
+		transform: scale(1.02);
+	}
+	.home-image img {
+		border: 5px solid #ffffff;
+		border-radius: 50%;
+		box-shadow: 0 10px 50px rgb(212, 63, 63);
+	}
+	.home-promotion {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		display: flex;
+
+		justify-content: center;
+		align-items: center;
+		margin-left: 4%;
+		margin-top: 100px;
+		margin-bottom: 100px;
+		width: 92%;
+		height: 100px;
+		/* padding: 10px; */
+		color: #5c5858;
+		transition: transform 500ms ease-in-out 25ms;
+	}
+	.home-promotion:hover {
+		/* transform: translateX(23px) translateY(0px); */
+		transform: scale(1.02);
+	}
+	.home-promotion .card-element {
+		left: 0;
+		display: flex;
+		width: 25%;
+		padding: 27px;
+		transition: transform 500ms ease-out 25ms;
+	}
+	.home-promotion .card-element:hover {
+		border-bottom: 5px solid rgb(221, 88, 106);
+	}
+	.home-promotion .card-element .icon {
+		font-size: 50px;
+		margin-right: 7px;
+		margin-top: -10px;
+		color: rgb(221, 88, 106);
+	}
+	.home-promotion .card-element .text {
+	}
+
+	.catagory-section {
+		width: 92%;
+		margin-left: 4%;
+		display: block;
+		justify-content: center;
+		align-items: center;
+	}
+	.catagory-section .catagory-title {
+		margin-bottom: 30px;
+		display: flex;
+		justify-content: space-between;
+	}
+	.catagory-section .catagory-title h1 {
+		font-size: 50px;
+	}
+	.catagory-section .catagory-title h1 span {
+		color: rgb(212, 63, 63);
+	}
+	.catagory-section .catagory-title button {
+		display: flex;
+		justify-content: center;
+		margin-top: 30px;
+		color: white;
+		border: none;
+		border-radius: 10px;
+		padding: 10px;
+		background-color: rgb(224, 26, 86);
+		font-weight: bold;
+		font-size: 18px;
+		transition: transform 500ms ease-in-out 25ms;
+	}
+	.catagory-section .catagory-title button:hover {
+		transform: scale(1.02);
+	}
+	.catagory-section .catagory-title button span {
+		margin-left: 5px;
+		margin-top: 2px;
+		font-size: 22px;
+	}
+}
+@media only screen and (max-width: 1020px) {
+	.home-flex {
+		width: 100%;
+		background-image: url("../images/home-back.jpg");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+	}
+	.home-left {
+		margin-top: 50px;
+		width: 100%;
+		display: block;
+		padding: 25px;
+	}
+	.home-left h5 {
+		width: 90%;
+		font-size: 25px;
+		font-weight: bold;
+		color: rgb(224, 26, 86);
+	}
+	.home-left h1 {
+		font-size: 40px;
+	}
+	.home-left button {
+		margin-top: 20px;
+		color: white;
+		border: none;
+		border-radius: 10px;
+		padding: 10px;
+		background-color: rgb(224, 26, 86);
+		font-weight: bold;
+		font-size: 18px;
+		transition: transform 500ms ease-in-out 25ms;
+	}
+	.home-left button:hover {
+		transform: scale(1.02);
+	}
+
+	.home-image {
+		margin-top: 50px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+		transition: transform 500ms ease-in-out 25ms;
+	}
+	.home-image:hover {
+		/* transform: translateX(23px) translateY(0px); */
+		transform: scale(1.02);
+	}
+	.home-image img {
+		border: 5px solid #ffffff;
+		border-radius: 50%;
+		width: 70%;
+		height: 70%;
+		box-shadow: 0 10px 50px rgb(212, 63, 63);
+	}
+	.home-promotion {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		justify-content: center;
+		align-items: center;
+		margin-left: 4%;
+		margin-top: 100px;
+		margin-bottom: 100px;
+		width: 92%;
+		display: grid;
+		grid-template-columns: 50% 50%;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+		color: #5c5858;
+		transition: transform 500ms ease-in-out 25ms;
+	}
+	.home-promotion:hover {
+		/* transform: translateX(23px) translateY(0px); */
+		transform: scale(1.02);
+	}
+	.home-promotion .card-element {
+		display: block;
+		justify-content: center;
+		align-items: center;
+
+		padding: 15px;
+		transition: transform 500ms ease-out 25ms;
+	}
+	.home-promotion .card-element:hover {
+		border-bottom: 5px solid rgb(221, 88, 106);
+	}
+	.home-promotion .card-element .icon {
+		font-size: 40px;
+		margin-top: -10px;
+		color: rgb(221, 88, 106);
+	}
+	.home-promotion .card-element .text {
+		width: 100%;
+	}
+
+	.catagory-section {
+		width: 92%;
+		margin-left: 4%;
+		display: block;
+		justify-content: center;
+		align-items: center;
+	}
+	.catagory-section .catagory-title {
+		margin-bottom: 30px;
+		display: flex;
+		justify-content: space-between;
+	}
+	.catagory-section .catagory-title h1 {
+		font-size: 30px;
+	}
+	.catagory-section .catagory-title h1 span {
+		color: rgb(212, 63, 63);
+	}
+	.catagory-section .catagory-title button {
+		display: flex;
+		justify-content: center;
+		margin-top: 30px;
+		color: white;
+		border: none;
+		border-radius: 10px;
+		padding: 10px;
+		background-color: rgb(224, 26, 86);
+		font-weight: bold;
+		font-size: 18px;
+		transition: transform 500ms ease-in-out 25ms;
+	}
+	.catagory-section .catagory-title button:hover {
+		transform: scale(1.02);
+	}
+	.catagory-section .catagory-title button span {
+		margin-left: 5px;
+		font-size: 18px;
+	}
+	.catagories-nav {
+		background-color: #ffffff;
+	}
+	.review-section {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

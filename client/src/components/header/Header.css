@@ -1,116 +1,3 @@
-a {
-	text-decoration: none;
-	color: white;
-}
-a:hover {
-	text-decoration: none;
-	color: white;
-}
-@media only screen and (min-width: 800px) {
-	.nav-bar {
-		width: 96%;
-		margin-left: 2%;
-		margin-top: 2%;
-		border-radius: 15px;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		color: white;
-		background: linear-gradient(to right, rgb(68, 68, 204), rgb(221, 75, 75));
-	}
-	.nav-logo {
-		cursor: pointer;
-	}
-
-	.nav-links,
-	.nav-links-hide,
-	.nav-right {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-	}
-
-	.nav-links-hide .nav-item {
-		--b: 0.2em; /* the thickness of the line */
-		--c: #1095c1; /* the color */
-
-		color: white;
-		padding-block: var(--b);
-		background: linear-gradient(var(--c) 50%, #000 0) 0%
-				calc(100% - var(--_p, 0%)) / 100% 200%,
-			linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
-				no-repeat;
-		-webkit-background-clip: text, padding-box;
-		background-clip: text, padding-box;
-		transition: 0.3s var(--_s, 0s) linear,
-			background-size 0.3s calc(0.3s - var(--_s, 0s));
-	}
-	.nav-links-hide .nav-item:hover {
-		color: #ab9be5;
-		--_p: 100%;
-		--_s: 0.3s;
-	}
-
-	.nav-item,
-	.right-item {
-		cursor: pointer;
-
-		font-size: 20px;
-		margin-left: 10px;
-		padding: 10px;
-		list-style: none;
-	}
-	.right-item:hover {
-		color: white;
-	}
-	.nav-toggler {
-		display: none;
-		font-weight: bold;
-	}
-}
-.drop-icon {
-	margin-left: 5px;
-	color: white;
-}
-.dropbtn {
-	color: white;
-	padding: 16px;
-	font-size: 18px;
-	border: none;
-	cursor: pointer;
-}
-
-.dropdown {
-	position: relative;
-	display: inline-block;
-	list-style: none;
-}
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f9f9f9;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
-
-.dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-}
-
-.dropdown-content a:hover {
-	background-color: #ece3e3;
-}
-
-.dropdown:hover .dropdown-content {
-	display: block;
-}
-
 .cart-quantity {
 	text-align: center;
 	align-items: center;
@@ -122,94 +9,24 @@ a:hover {
 	border-radius: 50%;
 	display: inline-block;
 }
-.nav-toggler,
-.nav-toggler-hide,
-.close-toggler,
-.close-toggler-hide,
-.mobile-nav-logo {
-	display: none;
-}
-@media only screen and (max-width: 800px) {
-	.nav-bar {
-		height: 60px;
-		position: fixed;
-		padding: 10px;
-		width: 100%;
-		display: block;
-		flex-direction: column;
-		color: rgb(241, 236, 236);
-		background: linear-gradient(to right, rgb(68, 68, 204), rgb(221, 75, 75));
-		line-height: 20px;
-	}
-	.nav-right {
-		list-style: none;
-		display: flex;
-		justify-content: center;
-		align-items: flex-start;
-		position: fixed;
-		top: 15px;
-		right: 10px;
-		cursor: pointer;
-	}
-	.nav-right .dropdown {
-		margin-top: -16px;
-	}
-	.nav-toggler {
-		margin-bottom: 10px;
-		margin-top: 2px;
-		color: white;
-		cursor: pointer;
-	}
-	.nav-toggler-hide {
-		cursor: pointer;
-		display: block;
-	}
-	.close-toggler {
-		color: red;
-		position: absolute;
-		top: 0px;
-		right: 10px;
-		display: block;
-		cursor: pointer;
-	}
+.nav-item-to-hover {
+	--b: 0.2em; /* the thickness of the line */
+	--c: #1095c1; /* the color */
 
-	.right-item:hover {
-		color: white;
-	}
-	.nav-links {
-		position: absolute;
-		left: 0;
-		top: 0px;
-		display: block;
-		width: 200px;
-		height: 100vh;
-		background-color: #efe9f3;
-	}
-	.nav-links li {
-		color: #000;
-		text-decoration: 1px solid underline;
-	}
-	.nav-links-hide {
-		display: none;
-	}
-	.nav-logo {
-		display: none;
-	}
-	.mobile-nav-logo {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 100px;
-		background-color: #292c2f;
-		padding: 5px;
-	}
-	.mobile-nav-logo img {
-		margin-left: -20px;
-	}
-	.nav-item {
-		list-style: none;
-		padding: 10px;
-		font-size: 20px;
-	}
+	color: white;
+	font-size: 20px;
+	padding-block: var(--b);
+	background: linear-gradient(var(--c) 50%, #000 0) 0%
+			calc(100% - var(--_p, 0%)) / 100% 200%,
+		linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
+			no-repeat;
+	-webkit-background-clip: text, padding-box;
+	background-clip: text, padding-box;
+	transition: 0.3s var(--_s, 0s) linear,
+		background-size 0.3s calc(0.3s - var(--_s, 0s));
+}
+.nav-item-to-hover:hover {
+	color: #ab9be5;
+	--_p: 100%;
+	--_s: 0.3s;
 }
