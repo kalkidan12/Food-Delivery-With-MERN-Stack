@@ -30,3 +30,6 @@
 	--_p: 100%;
 	--_s: 0.3s;
 }
+.nav-item-to-hover:active {
+	color: rgb(189, 44, 44) !important;
+}

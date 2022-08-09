@@ -140,6 +140,50 @@
 		margin-top: 2px;
 		font-size: 22px;
 	}
+	.foods-to-flex {
+		margin-top: 100px;
+		width: 96%;
+
+		display: flex;
+	}
+	.select-catagory {
+		margin-left: 2%;
+		width: 30%;
+		color: #e0cfcf;
+
+		border-radius: 20px;
+		height: 300px;
+		padding: 10px;
+		background-color: #6677c4;
+	}
+	.select-catagory h1 {
+		font-size: 20px;
+		text-align: center;
+	}
+	.catagory-element {
+		font-size: 18px;
+		float: right;
+		margin-right: 5%;
+	}
+	.catagory-element li {
+		padding: 3px;
+		cursor: pointer;
+		list-style: none;
+		margin-top: 10px;
+	}
+	.catagory-element li:hover {
+		border-radius: 3px;
+		color: white;
+		background-color: #c7335f;
+	}
+	.cart-title {
+		font-size: 30px;
+	}
+	.review-section {
+		margin-left: 10%;
+		width: 80%;
+		margin-bottom: 100px;
+	}
 }
 @media only screen and (max-width: 1020px) {
 	.home-flex {
@@ -286,9 +330,8 @@
 		background-color: #ffffff;
 	}
 	.review-section {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		margin-left: 10%;
+		width: 80%;
+		margin-bottom: 100px;
 	}
 }

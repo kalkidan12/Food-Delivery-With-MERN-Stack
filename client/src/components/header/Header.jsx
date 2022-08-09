@@ -101,13 +101,14 @@ function Header() {
 			collapseOnSelect
 			expand="lg"
 			variant="dark"
+			sticky="top"
 			style={{
 				background:
 					"linear-gradient(to right, rgba(53, 82, 211, 0.8), rgba(219, 58, 29, 0.8))",
 			}}
 		>
 			<Container>
-				<Navbar.Brand href="#home">
+				<Navbar.Brand href="/">
 					<img src={logo} width="50px" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -128,10 +129,7 @@ function Header() {
 					</Nav>
 					<Nav>
 						<Nav.Link href="/cart">
-							{/* <i className="cart-icon">
-								<FaShoppingCart />
-							</i>
-							<span className="cart-quantity">2</span> */}
+					
 							<MDBBadge pill color="danger">
 								3
 							</MDBBadge>
@@ -143,9 +141,7 @@ function Header() {
 							<NavDropdown.Item href="">Login</NavDropdown.Item>
 							<NavDropdown.Item href="">Sign Up</NavDropdown.Item>
 							<NavDropdown.Divider />
-							<NavDropdown.Item href="#action/3.4">
-								Separated link
-							</NavDropdown.Item>
+							<NavDropdown.Item href="">Separated link</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
 				</Navbar.Collapse>
