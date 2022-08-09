@@ -23,22 +23,8 @@ function Cart() {
 							<div className="col-md-2 col-sm-12 mb-3">total</div>
 							<div className="col-md-2 col-sm-12 mb-3">X</div>
 						</div>
-						{/* <div className="row mb-5">
-							<div className="col-4">productImage + Product Name</div>
-							<div className="col-2">price</div>
-							<div className="col-2">- Quantity +</div>
-							<div className="col-2">total</div>
-							<div className="col-2">X</div>
-						</div>
-						<div className="row mb-5">
-							<div className="col-4">productImage + Product Name</div>
-							<div className="col-2">price</div>
-							<div className="col-2">- Quantity +</div>
-							<div className="col-2">total</div>
-							<div className="col-2">X</div>
-						</div> */}
 					</div>
-					<div className="col-md-3 col-sm-12 card bg-light p-5 mb-5">
+					<div className="col-lg-3 col-md-12 col-sm-12 card bg-light p-5 mb-5">
 						<div className="col-12 shadow-sm p-2 mb-2 mt-1 text-center">
 							Cart Total
 						</div>
