@@ -12,12 +12,8 @@ import { CatagoryList } from "../components/foods/FoodCatagories";
 import { FaSadCry } from "react-icons/fa";
 function Foods() {
 	const [catagory, setCatagory] = useState("burger");
-	const [bselected, bsetSelected] = useState(false);
-	const [pselected, psetSelected] = useState(false);
-	const [snselected, snsetSelected] = useState(false);
-	const [sselected, ssetSelected] = useState(false);
-	const [vselected, vsetSelected] = useState(false);
-	const [jselected, jsetSelected] = useState(false);
+	const [selected, setSelected] = useState(1);
+
 	console.log(catagory);
 	return (
 		<div className="foods-to-flex">
@@ -26,10 +22,13 @@ function Foods() {
 				<div className="catagory-element">
 					<ul>
 						<li
-							onClick={() => setCatagory("burger")}
+							onClick={() => {
+								setCatagory("burger");
+								setSelected(1);
+							}}
 							className="to-be-active"
 							style={
-								bselected
+								selected == 1
 									? {
 											borderRadius: "3px",
 											color: "white",
@@ -41,9 +40,12 @@ function Foods() {
 							Burgers
 						</li>
 						<li
-							onClick={() => setCatagory("pizza")}
+							onClick={() => {
+								setCatagory("pizza");
+								setSelected(2);
+							}}
 							style={
-								pselected
+								selected == 2
 									? {
 											borderRadius: "3px",
 											color: "white",
@@ -55,10 +57,13 @@ function Foods() {
 							Pizza
 						</li>
 						<li
-							onClick={() => setCatagory("sandwich")}
+							onClick={() => {
+								setCatagory("sandwich");
+								setSelected(3);
+							}}
 							className="to-be-active"
 							style={
-								snselected
+								selected == 3
 									? {
 											borderRadius: "3px",
 											color: "white",
@@ -70,10 +75,13 @@ function Foods() {
 							Sandwich
 						</li>
 						<li
-							onClick={() => setCatagory("salad")}
+							onClick={() => {
+								setCatagory("salad");
+								setSelected(4);
+							}}
 							className="to-be-active"
 							style={
-								sselected
+								selected == 4
 									? {
 											borderRadius: "3px",
 											color: "white",
@@ -85,10 +93,13 @@ function Foods() {
 							Salad
 						</li>
 						<li
-							onClick={() => setCatagory("vegetable")}
+							onClick={() => {
+								setCatagory("vegetable");
+								setSelected(5);
+							}}
 							className="to-be-active"
 							style={
-								vselected
+								selected == 5
 									? {
 											borderRadius: "3px",
 											color: "white",
@@ -100,9 +111,12 @@ function Foods() {
 							Vegetable
 						</li>
 						<li
-							onClick={() => setCatagory("juice")}
+							onClick={() => {
+								setCatagory("juice");
+								setSelected(6);
+							}}
 							style={
-								jselected
+								selected == 6
 									? {
 											borderRadius: "3px",
 											color: "white",

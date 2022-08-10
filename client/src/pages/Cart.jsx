@@ -37,11 +37,10 @@ function Cart() {
 								<div className="col-12 text-start mb-2">Payment:</div>
 
 								<select
-									class=" col-12 m-1 form-select"
+									className=" col-12 m-1 form-select"
 									aria-label="Default select example"
 								>
-									<option selected>Selct Payment Method</option>
-									<option value="1">On Delivery</option>
+									<option defaultChecked>On Delivery</option>
 									<option value="2">Telebirr</option>
 								</select>
 							</div>
