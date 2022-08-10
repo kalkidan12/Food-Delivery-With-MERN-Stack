@@ -17,7 +17,7 @@ function Contact() {
 				</p>
 
 				<div className="row">
-					<div className="col-md-6 mb-5 ">
+					<div className="col-md-6 mb-5 p-5">
 						<div className="row">
 							<div className="col-12 mb-4">
 								Do you have any questions? Please do not hesitate to contact us
@@ -37,7 +37,7 @@ function Contact() {
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6 mb-md-0 mb-5">
+					<div className="col-md-6 mb-md-0 mb-5 p-5 card">
 						<form
 							id="contact-form"
 							name="contact-form"
@@ -107,7 +107,7 @@ function Contact() {
 						</form>
 
 						<div className="text-center text-md-left float-start mt-3">
-							<a className="btn btn-primary">Send</a>
+							<a className="btn btn-primary float-start">Send</a>
 						</div>
 						<div className="status"></div>
 					</div>

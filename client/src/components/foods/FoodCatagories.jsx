@@ -2,8 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Container } from "@chakra-ui/react";
 import { MDBFooter, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import { foodList } from "./FoodsData";
+import { addToCart } from "../../features/slices/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./foodCatagories.css";
 export function CatagoryList({ catagory }) {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const handleAddToCart = (food) => {
+		dispatch(addToCart(food));
+		navigate("/cart");
+	};
 	const [selectedCatagory, setSelectedCatagory] = useState([]);
 	const setFoodList = () => {
 		const catagoryItem = foodList.filter((food) => food.catagory == catagory);
@@ -54,7 +63,9 @@ export function CatagoryList({ catagory }) {
 								/>
 								<h1>{food.title}</h1>
 								<p>{food.price}</p>
-								<button>Add To Cart</button>
+								<button onClick={() => handleAddToCart(food)}>
+									Add To Cart
+								</button>
 							</div>
 						</div>
 					</div>

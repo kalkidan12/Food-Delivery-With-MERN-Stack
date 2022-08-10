@@ -92,10 +92,13 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaUserCircle } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import logo from "../../images/logo.png";
+import { useSelector } from "react-redux";
 
 import "./Header.css";
 
 function Header() {
+	const { cartTotalQuantity } = useSelector((state) => state.cart);
+
 	return (
 		<Navbar
 			collapseOnSelect
@@ -130,7 +133,7 @@ function Header() {
 					<Nav>
 						<Nav.Link href="/cart">
 							<MDBBadge pill color="danger">
-								3
+								{cartTotalQuantity}
 							</MDBBadge>
 							<span>
 								<MDBIcon fas icon="shopping-cart" color="white"></MDBIcon>
