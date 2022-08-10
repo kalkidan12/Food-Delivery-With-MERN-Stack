@@ -14,7 +14,7 @@ function Foods() {
 	const [catagory, setCatagory] = useState("burger");
 	const [selected, setSelected] = useState(1);
 
-	console.log(catagory);
+	// console.log(catagory);
 	return (
 		<div className="foods-to-flex">
 			<div className="select-catagory">
