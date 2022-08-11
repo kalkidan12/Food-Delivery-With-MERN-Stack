@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { BiArrowBack } from "react-icons/bi";
+import { BsCartX } from "react-icons/bs";
 
 import "./pages.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,9 +43,15 @@ function Cart() {
 				<div className="row">
 					{cart.cartItems.length === 0 ? (
 						<div className="text-center">
+							<div
+								className="col-12 w-100 d-flex align-items-center justify-content-center mb-3"
+								style={{ fontSize: "80px", color: "grey" }}
+							>
+								<BsCartX />
+							</div>
 							<h1>Your Cart Is Empty</h1>
 							<Link to="/foods">
-								<button className="btn btn-secondary m-2">
+								<button className="btn btn-secondary mb-5 mt-2">
 									Start Shopping
 								</button>
 							</Link>
@@ -79,7 +85,7 @@ function Cart() {
 												</div>
 											</div>
 											<div className="col-md-2 col-sm-12 mb-3">
-												{cartItem.price}
+												{cartItem.price} Br
 											</div>
 											<div className="col-md-2 col-sm-12 mb-3">
 												<div className="row">
@@ -99,7 +105,7 @@ function Cart() {
 												</div>
 											</div>
 											<div className="col-md-2 col-sm-12 mb-3">
-												{cartItem.price * cartItem.cartQuantity}
+												{cartItem.price * cartItem.cartQuantity} Br
 											</div>
 											<div className="col-md-2 col-sm-12 mb-3">
 												<button onClick={() => handleRemoveFromCart(cartItem)}>
@@ -136,7 +142,7 @@ function Cart() {
 									<div className="row m-2">
 										<div className="col-6">Sub Total:</div>
 										<div className="col-6 float-end">
-											{cart.cartTotalAmount}
+											{cart.cartTotalAmount} Br
 										</div>
 									</div>
 									<div className="row m-2">
@@ -156,7 +162,7 @@ function Cart() {
 									<div className="row m-2">
 										<div className="col-6">Total:</div>
 										<div className="col-6 float-end">
-											{cart.cartTotalAmount}
+											{cart.cartTotalAmount} Br
 										</div>
 									</div>
 									<div className="col-12  shadow-sm p-2 mb-2 mt-1 text-center">

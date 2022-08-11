@@ -62,7 +62,7 @@ export function CatagoryList({ catagory }) {
 									}}
 								/>
 								<h1>{food.title}</h1>
-								<p>{food.price}</p>
+								<p>{food.price} Br</p>
 								<button onClick={() => handleAddToCart(food)}>
 									Add To Cart
 								</button>
