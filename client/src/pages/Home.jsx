@@ -9,10 +9,10 @@ import { TbDiscount2 } from "react-icons/tb";
 import { useSelector, useDispatch } from "react-redux";
 import CatagoriesSection from "../components/catagories/CatagoriesSection";
 import Review from "../components/review/Review";
+import { Link } from "react-router-dom";
 
 function Home() {
 	const foods = useSelector((state) => state.foodList);
-	console.log(foods);
 	return (
 		<div>
 			<div className="home-flex">
@@ -23,12 +23,14 @@ function Home() {
 						best healthy way to life
 					</h1>
 					<div>
-						<button>
-							Order Now
-							<span>
-								<FaAngleRight />
-							</span>
-						</button>
+						<Link to="/foods">
+							<button>
+								Order Now
+								<span>
+									<FaAngleRight />
+								</span>
+							</button>
+						</Link>
 					</div>
 				</div>
 				<div className="home-image">
@@ -84,9 +86,11 @@ function Home() {
 						</span>
 					</h1>
 					<div>
-						<button>
-							See All<span>{<FaAngleRight />}</span>
-						</button>
+						<Link to="/foods">
+							<button>
+								See All<span>{<FaAngleRight />}</span>
+							</button>
+						</Link>
 					</div>
 				</div>
 				<div className="catagories-nav">

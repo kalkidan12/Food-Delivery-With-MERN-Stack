@@ -59,17 +59,19 @@ function Cart() {
 					) : (
 						<>
 							<div className="col-md-9 col-sm-12 text-center">
-								<div className="row mb-5 text-muted">
-									<div className="col-md-4 col-sm-12">
-										<div className="row">
-											<div className="col-md-6 col-sm-12 mb-3">Image</div>{" "}
-											<div className="col-md-6 col-sm-12 mb-3">Name</div>
+								<div className="header-title">
+									<div className="row mb-5 text-muted">
+										<div className="col-md-4 col-sm-12">
+											<div className="row">
+												<div className="col-md-6 col-sm-12 mb-3">Image</div>{" "}
+												<div className="col-md-6 col-sm-12 mb-3">Name</div>
+											</div>
 										</div>
+										<div className="col-md-2 col-sm-12 mb-3">price</div>
+										<div className="col-md-2 col-sm-12 mb-3">Quantity</div>
+										<div className="col-md-2 col-sm-12 mb-3">total</div>
+										<div className="col-md-2 col-sm-12 mb-3">Remove</div>
 									</div>
-									<div className="col-md-2 col-sm-12 mb-3">price</div>
-									<div className="col-md-2 col-sm-12 mb-3">Quantity</div>
-									<div className="col-md-2 col-sm-12 mb-3">total</div>
-									<div className="col-md-2 col-sm-12 mb-3">Remove</div>
 								</div>
 								{cart.cartItems &&
 									cart.cartItems.map((cartItem) => (

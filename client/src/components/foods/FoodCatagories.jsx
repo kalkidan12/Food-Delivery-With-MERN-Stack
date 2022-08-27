@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Container } from "@chakra-ui/react";
 import { MDBFooter, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import { foodList } from "./FoodsData";
@@ -18,15 +18,19 @@ export function CatagoryList({ catagory }) {
 		const catagoryItem = foodList.filter((food) => food.catagory == catagory);
 		setSelectedCatagory(catagoryItem);
 	};
+	const ref = useRef();
+
 	useEffect(() => {
 		setFoodList();
 	}, [catagory]);
-	console.log(selectedCatagory);
 	return (
-		<div className="container">
-			<div className="row justify-content-space-around align-items-felx-center">
+		<div className="container" ref={ref}>
+			<div className="row display-content-center align-items-center">
 				{selectedCatagory.map((food) => (
-					<div className="col-3 flip-card mx-auto mb-4" key={food.id}>
+					<div
+						className="col-lg-3 col-md-3 col-sm-3 flip-card mx-auto mb-4"
+						key={food.id}
+					>
 						<div className="flip-card-inner ">
 							<div
 								className="flip-card-front"
