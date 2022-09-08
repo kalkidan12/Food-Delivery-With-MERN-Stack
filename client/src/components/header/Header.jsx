@@ -75,6 +75,7 @@ function Header() {
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
+					<Nav className="me-auto"></Nav>
 					<Nav className="me-auto">
 						<Nav.Link href="/" className="nav-item-to-hover">
 							Home
@@ -91,7 +92,7 @@ function Header() {
 					</Nav>
 					<Nav>
 						<Nav.Link href="/cart">
-							<MDBBadge pill color="danger">
+							<MDBBadge pill color="warning">
 								{totalQuantity}
 							</MDBBadge>
 							<span>

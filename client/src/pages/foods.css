@@ -3,6 +3,7 @@
 
 /* scrennwidth large */
 li {
+	cursor: pointer;
 	list-style: none;
 }
 a {
