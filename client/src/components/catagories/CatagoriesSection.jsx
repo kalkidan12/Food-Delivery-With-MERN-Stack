@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 function CatagoriesSection() {
 	const [selected, setSelected] = useState(1);
 	return (
-		<div className="container">
+		<div className="cat-container">
 			<div className="card">
 				<img src={burgerImage} alt="Person" className="card__image" />
 				<p className="card__name">Burgers</p>
@@ -29,7 +29,7 @@ function CatagoriesSection() {
 					<button className="btn draw-border" onClick={() => setSelected(2)}>
 						Order Now
 					</button>
-				</Link>{" "}
+				</Link>
 			</div>
 			<div className="card">
 				<img src={sandwichImage} alt="Person" className="card__image" />
@@ -38,8 +38,8 @@ function CatagoriesSection() {
 					<button className="btn draw-border" onClick={() => setSelected(3)}>
 						Order Now
 					</button>
-				</Link>{" "}
-			</div>{" "}
+				</Link>
+			</div>
 			<div className="card">
 				<img src={sladImage} alt="Person" className="card__image" />
 				<p className="card__name">Salads</p>
@@ -47,7 +47,7 @@ function CatagoriesSection() {
 					<button className="btn draw-border" onClick={() => setSelected(4)}>
 						Order Now
 					</button>
-				</Link>{" "}
+				</Link>
 			</div>
 			<div className="card">
 				<img src={fruitImage} alt="Person" className="card__image" />
@@ -56,7 +56,7 @@ function CatagoriesSection() {
 					<button className="btn draw-border" onClick={() => setSelected(5)}>
 						Order Now
 					</button>
-				</Link>{" "}
+				</Link>
 			</div>
 			<div className="card">
 				<img src={juiceImage} alt="Person" className="card__image" />
@@ -65,7 +65,7 @@ function CatagoriesSection() {
 					<button className="btn draw-border" onClick={() => setSelected(6)}>
 						Order Now
 					</button>
-				</Link>{" "}
+				</Link>
 			</div>
 		</div>
 	);

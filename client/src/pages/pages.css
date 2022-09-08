@@ -6,7 +6,7 @@ li:hover {
 	border-radius: 5px;
 }
 
-@media only screen and (min-width: 1020px) {
+@media only screen and (min-width: 1000px) {
 	.home-flex {
 		width: 100%;
 		border-radius: 20px;
@@ -52,14 +52,14 @@ li:hover {
 	}
 
 	.home-image {
-		margin-top: 100px;
+		margin-top: 30px;
 		width: 50%;
-
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding: 10px;
 		margin-left: 100px;
+		margin-right: 10px;
 		transition: transform 500ms ease-in-out 25ms;
 	}
 	.home-image:hover {
@@ -196,7 +196,7 @@ li:hover {
 		display: flex;
 	}
 }
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1000px) {
 	.home-flex {
 		width: 100%;
 		background-image: url("../images/home-back.jpg");
@@ -217,14 +217,15 @@ li:hover {
 	}
 	.home-left h5 {
 		width: 90%;
-		font-size: 25px;
+		font-size: 20px;
 		font-weight: bold;
 		color: rgb(224, 26, 86);
 	}
 	.home-left h1 {
-		font-size: 40px;
+		font-size: 30px;
 	}
 	.home-left button {
+		display: flex;
 		margin-top: 20px;
 		color: white;
 		border: none;
@@ -235,12 +236,15 @@ li:hover {
 		font-size: 18px;
 		transition: transform 500ms ease-in-out 25ms;
 	}
+	.home-left button span {
+		margin-top: 5px;
+	}
 	.home-left button:hover {
 		transform: scale(1.02);
 	}
 
 	.home-image {
-		margin-top: 50px;
+		margin-top: 10px;
 		width: 100%;
 		display: flex;
 		justify-content: center;
@@ -255,8 +259,8 @@ li:hover {
 	.home-image img {
 		border: 5px solid #ffffff;
 		border-radius: 50%;
-		width: 70%;
-		height: 70%;
+		width: 60%;
+		height: 60%;
 		box-shadow: 0 10px 50px rgb(212, 63, 63);
 	}
 	.home-promotion {
@@ -312,7 +316,7 @@ li:hover {
 		justify-content: space-between;
 	}
 	.catagory-section .catagory-title h1 {
-		font-size: 30px;
+		font-size: 27px;
 	}
 	.catagory-section .catagory-title h1 span {
 		color: rgb(212, 63, 63);
@@ -334,6 +338,7 @@ li:hover {
 		transform: scale(1.02);
 	}
 	.catagory-section .catagory-title button span {
+		margin-top: 5px;
 		margin-left: 5px;
 		font-size: 18px;
 	}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { usestate, useEffect } from "react";
 import axios from "axios";
 import homeImage from "../images/home-image.png";
 import "./pages.css";
@@ -8,7 +8,6 @@ import { GiLevelFourAdvanced } from "react-icons/gi";
 import { TbDiscount2 } from "react-icons/tb";
 import { useSelector, useDispatch } from "react-redux";
 import CatagoriesSection from "../components/catagories/CatagoriesSection";
-import Review from "../components/review/Review";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -96,9 +95,6 @@ function Home() {
 				<div className="catagories-nav">
 					<CatagoriesSection />
 				</div>
-			</div>
-			<div className="review-section">
-				<Review />
 			</div>
 		</div>
 	);

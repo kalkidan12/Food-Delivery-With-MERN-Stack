@@ -1,15 +1,38 @@
-import React, { useState } from "react";
-import "./pages.css";
+import React, { useState, useEffect, useRef } from "react";
+import { foodList } from "../components/foods/FoodsData";
+import { addToCart } from "../features/slices/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import "./foods.css";
 
-import { CatagoryList } from "../components/foods/FoodCatagories";
+import { useLocation } from "react-router-dom";
 function Foods() {
+	const location = useLocation();
+	// const selectedItem = location.state.selceted;
 	const [catagory, setCatagory] = useState("burger");
 	const [selected, setSelected] = useState(1);
 
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const handleAddToCart = (food) => {
+		dispatch(addToCart(food));
+		navigate("/cart");
+	};
+	const [selectedCatagory, setSelectedCatagory] = useState([]);
+	const setFoodList = () => {
+		const catagoryItem = foodList.filter((food) => food.catagory == catagory);
+		setSelectedCatagory(catagoryItem);
+	};
+	const ref = useRef();
+
+	useEffect(() => {
+		setFoodList();
+	}, [catagory]);
+
 	return (
-		<div className="">
-			<div className="d-flex justify-content-center align-items-center text-center p-3 m-2 bg-warning text-center">
-				<ul className="nav nav-pills text-center">
+		<div className="foods">
+			<div className="foods-catagory">
+				<ul>
 					<li
 						onClick={() => {
 							setCatagory("burger");
@@ -121,7 +144,41 @@ function Foods() {
 				</ul>
 			</div>
 
-			<CatagoryList catagory={catagory} />
+			<div className="catagory">
+				{selectedCatagory.map((food) => (
+					<div className="flip-card" key={food.id}>
+						<div className="flip-card-inner">
+							<div
+								className="flip-card-front"
+								style={{
+									borderRadius: "10px",
+								}}
+							>
+								<img src={food.img} alt="image" />
+							</div>
+							<div
+								className="flip-card-back"
+								style={{
+									borderRadius: "10px",
+								}}
+							>
+								<img
+									src={food.img}
+									alt="burger image"
+									style={{
+										borderRadius: "50%",
+									}}
+								/>
+								<h1>{food.title}</h1>
+								<p>{food.price} Br</p>
+								<button onClick={() => handleAddToCart(food)}>
+									Add To Cart
+								</button>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }

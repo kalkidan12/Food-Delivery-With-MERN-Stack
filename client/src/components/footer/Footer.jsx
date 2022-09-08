@@ -10,7 +10,10 @@ import { Link } from "react-router-dom";
 
 function Footer() {
 	return (
-		<MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
+		<MDBFooter
+			bgColor="light"
+			className="text-center text-lg-start text-muted mt-3"
+		>
 			<section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
 				<div className="me-5 d-none d-lg-block">
 					<span>Get connected with us on social networks:</span>
@@ -96,7 +99,7 @@ function Footer() {
 						</p>
 						<p>
 							<Link to="#!" className="text-reset">
-								Contacy
+								Contact Us
 							</Link>
 						</p>
 					</MDBCol>
@@ -126,7 +129,10 @@ function Footer() {
 				style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
 			>
 				© 2022 Copyright:
-				<Link className="text-reset fw-bold" to="https://mdbootstrap.com/">
+				<Link
+					className="text-reset fw-bold mx-1 px-1"
+					to="https://mdbootstrap.com/"
+				>
 					kalysite.com
 				</Link>
 			</div>

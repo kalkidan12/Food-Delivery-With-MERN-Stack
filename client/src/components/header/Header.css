@@ -27,7 +27,7 @@
 }
 .nav-item-to-hover:hover {
 	color: #ab9be5;
-	--_p: 100%;
+	/* --_p: 100%; */
 	--_s: 0.3s;
 }
 .nav-item-to-hover:active {
