@@ -74,6 +74,7 @@ function Header() {
 					<img src={logo} width="50px" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto"></Nav>
 					<Nav className="me-auto">

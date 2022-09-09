@@ -67,12 +67,8 @@
 		font: bold;
 	}
 	.continue-shopping {
-		position: absolute;
 		cursor: pointer;
 		color: brown;
-		position: absolute;
-		right: 5%;
-		bottom: 520px;
 	}
 	.clear-cart {
 		width: 100px;
