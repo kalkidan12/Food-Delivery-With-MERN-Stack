@@ -1,5 +1,5 @@
 {
-	"homepage": " https://kalkidan12.github.io/Food-Delivery-With-MERN-Stack",
+	"homepage": "https://github.com/kalkidan12/Food-Delivery-With-MERN-Stack.git",
 	"name": "reactcalculator",
 	"version": "0.1.0",
 	"private": true,
@@ -43,11 +43,11 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build"
+		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
 		"extends": [
