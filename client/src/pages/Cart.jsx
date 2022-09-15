@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdRemoveShoppingCart } from "react-icons/md";
 import { GiShoppingBag } from "react-icons/gi";
 import "./cart.css";
-import axios from "axios";
+import { useToast } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import {
 	addToCart,
@@ -20,19 +20,41 @@ function Cart() {
 	const { chekout_link } = useSelector((state) => state.payment);
 	const dispatch = useDispatch();
 
+	const currentUser = localStorage.getItem("food-user");
+	const [data, setData] = useState([]);
+	const [payNow, setPayNow] = useState(false);
+	console.log(payNow);
+
 	useEffect(() => {
+		if (currentUser && cart) {
+			const { first_name, last_name, email } = currentUser;
+			const { cartTotalAmount } = cart;
+			setData({
+				currency: "ETB",
+				amount: cartTotalAmount,
+				first_name: first_name,
+				last_name: last_name,
+				email: email,
+			});
+		}
 		dispatch(getTotals());
 	}, [cart, dispatch]);
 	const cartItem = JSON.parse(localStorage.getItem("cartItems"));
-	const data = {
-		amount: "100",
-		currency: "ETB",
-		email: "kalget1203@gmail.com",
-		first_name: "Abebe",
-		last_name: "Bikila",
-	};
+
 	const MakePayment = async () => {
 		dispatch(AcceptPayment(data));
+	};
+	const toast = useToast();
+
+	const unSignedUserHandler = () => {
+		toast({
+			title: "Please SignIn First!",
+			status: "warning",
+			duration: 5000,
+			isClosable: true,
+			position: "bottom",
+		});
+		navigate("/auth");
 	};
 
 	return (
@@ -51,9 +73,9 @@ function Cart() {
 							</div>
 							<div className="select">
 								<p>Select Payment</p>
-								<select type="option">
+								<select type="option" onChange={() => setPayNow(!payNow)}>
 									<option value="On Delivery">On Delivery</option>
-									<option value="Tele Birr">Tele Birr</option>
+									<option value="Tele Birr">Pay Now</option>
 								</select>
 							</div>
 							<div className="sub-total">
@@ -61,7 +83,17 @@ function Cart() {
 								<p>${cart.cartTotalAmount}</p>
 							</div>
 							<div className="button">
-								<button onClick={MakePayment}>Proceed Check Out</button>
+								<button
+									onClick={
+										currentUser
+											? payNow
+												? MakePayment
+												: () => {}
+											: unSignedUserHandler
+									}
+								>
+									Proceed Check Out
+								</button>
 							</div>
 						</div>
 						<Link to="/" className="continue-shopping">
@@ -76,7 +108,12 @@ function Cart() {
 							<div key={item.id}>
 								<ul className="cart-item-display">
 									<li>
-										<img src={item.img} alt="" width={70} height={70} />
+										<img
+											src={item.img}
+											alt="food-image"
+											width={70}
+											height={70}
+										/>
 									</li>
 									<li>{item.title}</li>
 									<li>

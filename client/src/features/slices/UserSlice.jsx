@@ -1,21 +1,22 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
-	users: [],
-	loggedIn: false,
-	token: "",
 	success: false,
 	signing: false,
+	isLoggedIn: false,
 	currentUser: [],
 };
 export const SignUp = createAsyncThunk(
 	"user/signup",
 	async (data, { rejectWithValue }) => {
-		const url = "http://localhost:3001/api/user/signup";
+		const url = "http://localhost:5000/api/user/signup";
 		try {
 			const res = await axios.post(url, data);
 			if (!res) return console.log("sign up failed");
-			console.log(res.data);
+			// localStorage.setItem(
+			// 	"food-user",
+			// 	JSON.stringify(initialState.currentUser),
+			// );
 			return res.data;
 		} catch (error) {
 			if (error.response && error.response.data.message) {
@@ -27,13 +28,17 @@ export const SignUp = createAsyncThunk(
 	},
 );
 
-export const LogIn = createAsyncThunk(
+export const Login = createAsyncThunk(
 	"user/login",
 	async (data, { rejectWithValue }) => {
-		const url = "http://localhost:3001/api/user/login";
+		const url = "http://localhost:5000/api/user/login";
 		try {
 			const res = await axios.post(url, data);
 			if (!res) return console.log("login failed");
+			// localStorage.setItem(
+			// 	"food-user",
+			// 	JSON.stringify(initialState.currentUser),
+			// );
 			return res.data;
 		} catch (error) {
 			if (error.response && error.response.data.message) {
@@ -49,8 +54,8 @@ const userSlice = createSlice({
 	initialState,
 	reducers: {
 		LogOut(state) {
-			state.loggedIn = false;
-			localStorage.removeItem("TOKEN");
+			state.isLoggedIn = false;
+			localStorage.removeItem("food-user");
 		},
 	},
 	extraReducers: {
@@ -58,28 +63,29 @@ const userSlice = createSlice({
 			state.signing = true;
 		},
 		[SignUp.fulfilled]: (state, { type, payload }) => {
-			state.success = true;
 			state.signing = false;
+			state.isLoggedIn = true;
+			state.success = true;
+			state.currentUser = payload.user;
+			localStorage.setItem("food-user", JSON.stringify(state.currentUser));
 		},
 		[SignUp.rejected]: (state, { type, payload }) => {
 			state.success = false;
 			state.signing = false;
 			state.success = false;
 		},
-		[LogIn.pending]: (state, { type, payload }) => {
+		[Login.pending]: (state, { type, payload }) => {
 			state.signing = true;
 			state.success = false;
 		},
-		[LogIn.fulfilled]: (state, { type, payload }) => {
+		[Login.fulfilled]: (state, { type, payload }) => {
 			state.signing = false;
-			state.loggedIn = true;
+			state.isLoggedIn = true;
 			state.success = true;
 			state.currentUser = payload.user;
-			state.token = payload.token;
-			localStorage.setItem("TOKEN", state.token);
-			localStorage.setItem("user", state.currentUser);
+			localStorage.setItem("food-user", JSON.stringify(state.currentUser));
 		},
-		[LogIn.rejected]: (state, { type, payload }) => {
+		[Login.rejected]: (state, { type, payload }) => {
 			state.signing = false;
 			state.success = false;
 		},

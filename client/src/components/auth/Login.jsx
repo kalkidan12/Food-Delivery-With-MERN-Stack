@@ -3,11 +3,12 @@ import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
 import { useState } from "react";
-import axios from "axios";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { Login } from "../../features/slices/UserSlice";
+import { useDispatch } from "react-redux";
 
-const Login = () => {
+const LogIn = () => {
 	const [show, setShow] = useState(false);
 	const handleClick = () => setShow(!show);
 	const toast = useToast();
@@ -16,7 +17,7 @@ const Login = () => {
 	const [loading, setLoading] = useState(false);
 
 	const navigate = useNavigate();
-
+	const dispatch = useDispatch();
 	const submitHandler = async () => {
 		setLoading(true);
 		if (!email || !password) {
@@ -33,19 +34,8 @@ const Login = () => {
 
 		// console.log(email, password);
 		try {
-			const config = {
-				headers: {
-					"Content-type": "application/json",
-				},
-			};
-
-			const { data } = await axios.post(
-				"/api/user/login",
-				{ email, password },
-				config,
-			);
-
-			// console.log(JSON.stringify(data));
+			const data = { email, password };
+			dispatch(Login(data));
 			toast({
 				title: "Login Successful",
 				status: "success",
@@ -53,9 +43,8 @@ const Login = () => {
 				isClosable: true,
 				position: "bottom",
 			});
-			localStorage.setItem("userInfo", JSON.stringify(data));
 			setLoading(false);
-			navigate("/chats");
+			navigate("/");
 		} catch (error) {
 			toast({
 				title: "Error Occured!",
@@ -109,4 +98,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default LogIn;

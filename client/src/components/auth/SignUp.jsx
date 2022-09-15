@@ -3,26 +3,25 @@ import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SignUp } from "../../features/slices/UserSlice";
 
 const Signup = () => {
 	const [show, setShow] = useState(false);
 	const handleClick = () => setShow(!show);
 	const toast = useToast();
 	const navigate = useNavigate();
-
-	const [name, setName] = useState();
+	const dispatch = useDispatch();
+	const [first_name, setFirstName] = useState();
+	const [last_name, setLastName] = useState();
 	const [email, setEmail] = useState();
 	const [confirmpassword, setConfirmpassword] = useState();
 	const [password, setPassword] = useState();
-	const [pic, setPic] = useState();
-	const [picLoading, setPicLoading] = useState(false);
 
-	const submitHandler = async () => {
-		setPicLoading(true);
-		if (!name || !email || !password || !confirmpassword) {
+	const submitHandler = () => {
+		if (!first_name || !last_name || !email || !password || !confirmpassword) {
 			toast({
 				title: "Please Fill all the Feilds",
 				status: "warning",
@@ -30,7 +29,6 @@ const Signup = () => {
 				isClosable: true,
 				position: "bottom",
 			});
-			setPicLoading(false);
 			return;
 		}
 		if (password !== confirmpassword) {
@@ -43,24 +41,11 @@ const Signup = () => {
 			});
 			return;
 		}
-		console.log(name, email, password, pic);
+		console.log(first_name, last_name, email, password);
+		const data = { first_name, last_name, email, password };
 		try {
-			const config = {
-				headers: {
-					"Content-type": "application/json",
-				},
-			};
-			const { data } = await axios.post(
-				"/api/user",
-				{
-					name,
-					email,
-					password,
-					pic,
-				},
-				config,
-			);
-			console.log(data);
+			//hre
+			dispatch(SignUp(data));
 			toast({
 				title: "Registration Successful",
 				status: "success",
@@ -68,9 +53,7 @@ const Signup = () => {
 				isClosable: true,
 				position: "bottom",
 			});
-			localStorage.setItem("userInfo", JSON.stringify(data));
-			setPicLoading(false);
-			navigate("/chats");
+			navigate("/");
 		} catch (error) {
 			toast({
 				title: "Error Occured!",
@@ -80,62 +63,23 @@ const Signup = () => {
 				isClosable: true,
 				position: "bottom",
 			});
-			setPicLoading(false);
-		}
-	};
-
-	const postDetails = (pics) => {
-		setPicLoading(true);
-		if (pics === undefined) {
-			toast({
-				title: "Please Select an Image!",
-				status: "warning",
-				duration: 5000,
-				isClosable: true,
-				position: "bottom",
-			});
-			return;
-		}
-		console.log(pics);
-		if (pics.type === "image/jpeg" || pics.type === "image/png") {
-			const data = new FormData();
-			data.append("file", pics);
-			data.append("upload_preset", "chat-app");
-			data.append("cloud_name", "piyushproj");
-			fetch("https://api.cloudinary.com/v1_1/piyushproj/image/upload", {
-				method: "post",
-				body: data,
-			})
-				.then((res) => res.json())
-				.then((data) => {
-					setPic(data.url.toString());
-					console.log(data.url.toString());
-					setPicLoading(false);
-				})
-				.catch((err) => {
-					console.log(err);
-					setPicLoading(false);
-				});
-		} else {
-			toast({
-				title: "Please Select an Image!",
-				status: "warning",
-				duration: 5000,
-				isClosable: true,
-				position: "bottom",
-			});
-			setPicLoading(false);
-			return;
 		}
 	};
 
 	return (
 		<VStack spacing="5px">
 			<FormControl id="first-name" isRequired>
-				<FormLabel>Name</FormLabel>
+				<FormLabel>First Name</FormLabel>
 				<Input
 					placeholder="Enter Your Name"
-					onChange={(e) => setName(e.target.value)}
+					onChange={(e) => setFirstName(e.target.value)}
+				/>
+			</FormControl>
+			<FormControl id="last-name" isRequired>
+				<FormLabel>Last Name</FormLabel>
+				<Input
+					placeholder="Enter Your Name"
+					onChange={(e) => setLastName(e.target.value)}
 				/>
 			</FormControl>
 			<FormControl id="email" isRequired>
@@ -182,7 +126,6 @@ const Signup = () => {
 				width="100%"
 				style={{ marginTop: 15 }}
 				onClick={submitHandler}
-				isLoading={picLoading}
 			>
 				Sign Up
 			</Button>

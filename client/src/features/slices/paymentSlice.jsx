@@ -12,7 +12,6 @@ export const AcceptPayment = createAsyncThunk(
 		const url = "http://localhost:5000/api/payment/initialize-payment";
 		try {
 			const res = await axios.post(url, initializeOptions);
-			console.log("payment - init - endinging");
 			return res.data;
 		} catch (error) {
 			if (error.res && error.res.data.message) {
@@ -24,24 +23,6 @@ export const AcceptPayment = createAsyncThunk(
 	},
 );
 
-// export const VerifyPayment = createAsyncThunk(
-// 	"payment/verify-payment",
-// 	async (data, { rejectWithValue }) => {
-// 		const url = "http://localhost:3001/api/user/login";
-// 		try {
-// 			const res = await axios.post(url, data);
-// 			if (!res) return console.log("payment verfication was interupted!");
-// 			res.redirect(response.data.data.checkout_url);
-// 			return res.data;
-// 		} catch (error) {
-// 			if (error.response && error.response.data.message) {
-// 				return rejectWithValue(error.response.data.message);
-// 			} else {
-// 				return rejectWithValue(error.message);
-// 			}
-// 		}
-// 	},
-// );
 const paymentSlice = createSlice({
 	name: "payment",
 	initialState,
