@@ -45,8 +45,7 @@ function Footer() {
 				<MDBRow className="mt-3">
 					<MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
 						<h6 className="text-uppercase fw-bold mb-4">
-							<MDBIcon icon="gem" className="me-3" />
-							Company name
+							<MDBIcon icon="gem" className="me-3" />K Food Delivery
 						</h6>
 						<p>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
