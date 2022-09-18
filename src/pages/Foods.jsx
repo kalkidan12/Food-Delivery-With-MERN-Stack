@@ -29,6 +29,12 @@ function Foods() {
 		setFoodList();
 	}, [catagory]);
 
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
 	return (
 		<div className="foods">
 			<div className="foods-catagory">
