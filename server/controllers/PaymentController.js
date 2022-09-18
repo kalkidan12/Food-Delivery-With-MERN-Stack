@@ -7,18 +7,16 @@ const chapa = new Chapa(ChapaUrls.SECRETE_KEY);
 
 //initialize payment
 const InitializePayent = async (req, res) => {
-	const { CHAPA_BASE_URL, VERIFY_URL, CALLBACK_URL, TX_REF } = ChapaUrls;
+	const { VERIFY_URL, TX_REF } = ChapaUrls;
 	try {
-		const tx_ref = uuidv4();
-		const callback_url = `${VERIFY_URL}/${TX_REF}`;
-		const initializeInfo = req.body;
+		const initializeInfo = { ...req.body };
 		initializeInfo["tx_ref"] = TX_REF;
 		initializeInfo["return_url"] = `${VERIFY_URL}/${TX_REF}`;
-		initializeInfo["callback_url"] = `${VERIFY_URL}/${TX_REF}`;
-
+		initializeInfo[
+			"callback_url"
+		] = `http://localhost:3000/api/payment/verify/${TX_REF}`;
 		const responseData = await chapa.initialize(initializeInfo);
 		const { status, data, message } = responseData;
-		console.log(responseData);
 		if (status === "success") {
 			res.send({
 				checkout_url: data.checkout_url,

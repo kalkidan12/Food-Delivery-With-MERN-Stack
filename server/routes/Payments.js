@@ -5,5 +5,5 @@ const {
 } = require("../controllers/PaymentController");
 
 router.post("/initialize-payment", InitializePayent);
-router.get("verify-payment/:tx_ref", VerifyPayment);
+router.get("verify/:tx_ref", VerifyPayment);
 module.exports = router;

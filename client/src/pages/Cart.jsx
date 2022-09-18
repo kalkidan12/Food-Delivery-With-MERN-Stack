@@ -23,7 +23,6 @@ function Cart() {
 	const currentUser = localStorage.getItem("food-user");
 	const [data, setData] = useState([]);
 	const [payNow, setPayNow] = useState(false);
-	console.log(payNow);
 
 	useEffect(() => {
 		if (currentUser && cart) {
@@ -42,7 +41,15 @@ function Cart() {
 	const cartItem = JSON.parse(localStorage.getItem("cartItems"));
 
 	const MakePayment = async () => {
-		dispatch(AcceptPayment(data));
+		dispatch(
+			AcceptPayment({
+				currency: "ETB",
+				amount: "122",
+				first_name: "first_name",
+				last_name: "last_name",
+				email: "kalget12@gmail.com",
+			}),
+		);
 	};
 	const toast = useToast();
 

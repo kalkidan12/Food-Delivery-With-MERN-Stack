@@ -3,6 +3,7 @@ import React, { Suspense, lazy } from "react";
 import "./route.css";
 import ShimmerEffect from "../components/common/ShimmerEffect";
 import AuthPage from "../components/auth/AuthPage";
+import VerifyPage from "../pages/VerifyPage";
 const Home = lazy(() => import("../pages/Home"));
 const PageNotFound = lazy(() => import("../pages/PageNotFound"));
 const Foods = lazy(() => import("../pages/Foods"));
@@ -25,6 +26,11 @@ function AllRoutes() {
 					<Route path="/cart" exact element={<Cart />} />
 					<Route path="/contact" exact element={<Contact />} />
 					<Route path="/auth" exact element={<AuthPage />} />
+					<Route
+						path="/api/payment/verify/:tx_ref"
+						exact
+						element={<VerifyPage />}
+					/>
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</Suspense>
