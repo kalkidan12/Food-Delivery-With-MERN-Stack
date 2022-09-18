@@ -3,7 +3,7 @@ import { MdRemoveShoppingCart } from "react-icons/md";
 import { GiShoppingBag } from "react-icons/gi";
 import "./cart.css";
 import { useToast } from "@chakra-ui/react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
 	addToCart,
 	decreaseCart,
@@ -64,6 +64,11 @@ function Cart() {
 		navigate("/auth");
 	};
 
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
 	return (
 		<>
 			<div className="cart-title">
