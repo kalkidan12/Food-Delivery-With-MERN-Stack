@@ -32,7 +32,6 @@ const LogIn = () => {
 			return;
 		}
 
-		// console.log(email, password);
 		try {
 			const data = { email, password };
 			dispatch(Login(data));
