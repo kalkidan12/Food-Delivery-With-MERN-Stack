@@ -35,6 +35,15 @@ const LogIn = () => {
 		try {
 			const data = { email, password };
 			dispatch(Login(data));
+			toast({
+				title: "Login Successful",
+				status: "success",
+				duration: 5000,
+				isClosable: true,
+				position: "bottom",
+			});
+			setLoading(false);
+			navigate("/");
 		} catch (error) {
 			toast({
 				title: "Error Occured!",
