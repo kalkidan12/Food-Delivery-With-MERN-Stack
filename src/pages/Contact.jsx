@@ -1,12 +1,20 @@
 import React from "react";
+import {
+	MDBFooter,
+	MDBContainer,
+	MDBRow,
+	MDBCol,
+	MDBIcon,
+} from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 function Contact() {
 	return (
 		<div className="col-12">
 			<section className="container mb-4">
 				<h2
-					className="h1-responsive font-weight-bold text-center my-4 bg-light p-5"
-					style={{ fontSize: "40px" }}
+					className="h1-responsive font-weight-bold text-center my-4 bg-warning p-2"
+					style={{ fontSize: "30px" }}
 				>
 					Contact us
 				</h2>
@@ -25,16 +33,38 @@ function Contact() {
 								hours to help you.
 							</div>
 							<div className="col-6 mb-3 text-center">
-								<h1 className="mb-3">The Office</h1>
-								<p>Contact 1</p>
-								<p>Contact 1</p>
-								<p>Contact 1</p>
+								<h1 className="mb-3">Contact Number</h1>
+								<p>+251 909988989</p>
+								<p>+251 909988989</p>
+								<p>+251 909988989</p>
 							</div>
 							<div className="col-6 text-center">
-								<h1 className="mb-3">The Office</h1>
-								<p>contact time</p>
-								<p>contact time</p>
+								<h1 className="mb-3">Call Time</h1>
+								<p>contact 8:00 - 18-00</p>
+								<p>contact 8:00 - 18-00</p>
+								<p>contact 8:00 - 18-00</p>
 							</div>
+						</div>
+
+						<div className="d-flex justify-content-center  align-items-center text-center mt-3">
+							<Link to="" className="me-4 text-reset">
+								<MDBIcon fab icon="facebook-f" />
+							</Link>
+							<Link to="" className="me-4 text-reset">
+								<MDBIcon fab icon="twitter" />
+							</Link>
+							<Link to="" className="me-4 text-reset">
+								<MDBIcon fab icon="google" />
+							</Link>
+							<Link to="" className="me-4 text-reset">
+								<MDBIcon fab icon="instagram" />
+							</Link>
+							<Link to="" className="me-4 text-reset">
+								<MDBIcon fab icon="linkedin" />
+							</Link>
+							<Link to="" className="me-4 text-reset">
+								<MDBIcon fab icon="telegram" />
+							</Link>
 						</div>
 					</div>
 					<div className="col-md-6 mb-md-0 mb-5 p-5 card">
