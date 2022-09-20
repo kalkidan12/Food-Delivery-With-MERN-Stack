@@ -12,9 +12,19 @@ const url = process.env.REACT_APP_BACKEND_URL;
 export const SignUp = createAsyncThunk(
 	"user/signup",
 	async (data, { rejectWithValue }) => {
+		const navigate = useNavigate();
+		const toast = useToast();
 		try {
 			const res = await axios.post(`${url}/api/user/signup`, data);
 			if (!res) return console.log("sign up failed");
+			toast({
+				title: "Signup Successful",
+				status: "success",
+				duration: 5000,
+				isClosable: true,
+				position: "bottom",
+			});
+			navigate("/cart");
 
 			return res.data;
 		} catch (error) {
@@ -30,9 +40,20 @@ export const SignUp = createAsyncThunk(
 export const Login = createAsyncThunk(
 	"user/login",
 	async (data, { rejectWithValue }) => {
+		const navigate = useNavigate();
+		const toast = useToast();
+
 		try {
 			const res = await axios.post(`${url}/api/user/login`, data);
 			if (!res) return console.log("login failed");
+			toast({
+				title: "Login Successful",
+				status: "success",
+				duration: 5000,
+				isClosable: true,
+				position: "bottom",
+			});
+			navigate("/cart");
 
 			return res.data;
 		} catch (error) {
