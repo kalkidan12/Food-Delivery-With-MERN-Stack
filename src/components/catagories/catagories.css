@@ -3,13 +3,13 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: auto auto auto auto;
-		grid-gap: 50px;
-
+		grid-gap: 30px;
 		justify-content: center;
 		align-items: center;
 		font-family: "Baloo Paaji 2", cursive;
 	}
 	.card {
+		width: 270px;
 		background-color: #ddd3d7;
 		border-radius: 5px;
 		display: flex;

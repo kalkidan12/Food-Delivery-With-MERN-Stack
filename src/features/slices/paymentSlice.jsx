@@ -5,13 +5,16 @@ const initialState = {
 	checkout_link: "/",
 	error: "",
 };
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export const AcceptPayment = createAsyncThunk(
 	"payment/make-payment",
 	async (initializeOptions, { rejectWithValue }) => {
-		const url = "http://localhost:5000/api/payment/initialize-payment";
 		try {
-			const res = await axios.post(url, initializeOptions);
+			const res = await axios.post(
+				`${url}/api/payment/initialize-payment`,
+				initializeOptions,
+			);
 			return res.data;
 		} catch (error) {
 			if (error.res && error.res.data.message) {

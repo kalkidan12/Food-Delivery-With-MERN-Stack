@@ -44,10 +44,10 @@ function Cart() {
 		dispatch(
 			AcceptPayment({
 				currency: "ETB",
-				amount: "122",
-				first_name: "first_name",
-				last_name: "last_name",
-				email: "kalget12@gmail.com",
+				amount: cart.cartTotalAmount,
+				first_name: currentUser.first_name,
+				last_name: currentUser.last_name,
+				email: currentUser.email,
 			}),
 		);
 	};
@@ -71,7 +71,7 @@ function Cart() {
 	}, [pathname]);
 	return (
 		<>
-			<div className="cart-title">
+			<div className="cart-title bg-warning">
 				<h2>Your Cart</h2>
 			</div>
 			<div className="container">

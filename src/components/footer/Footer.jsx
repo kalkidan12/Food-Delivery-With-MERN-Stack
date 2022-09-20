@@ -36,7 +36,7 @@ function Footer() {
 						<MDBIcon fab icon="linkedin" />
 					</Link>
 					<Link to="" className="me-4 text-reset">
-						<MDBIcon fab icon="github" />
+						<MDBIcon fab icon="telegram" />
 					</Link>
 				</div>
 			</section>

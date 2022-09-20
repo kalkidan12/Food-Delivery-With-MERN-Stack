@@ -1,4 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const initialState = {
 	success: false,
@@ -6,17 +8,14 @@ const initialState = {
 	isLoggedIn: false,
 	currentUser: [],
 };
+const url = process.env.REACT_APP_BACKEND_URL;
 export const SignUp = createAsyncThunk(
 	"user/signup",
 	async (data, { rejectWithValue }) => {
-		const url = "http://localhost:5000/api/user/signup";
 		try {
-			const res = await axios.post(url, data);
+			const res = await axios.post(`${url}/api/user/signup`, data);
 			if (!res) return console.log("sign up failed");
-			// localStorage.setItem(
-			// 	"food-user",
-			// 	JSON.stringify(initialState.currentUser),
-			// );
+
 			return res.data;
 		} catch (error) {
 			if (error.response && error.response.data.message) {
@@ -31,14 +30,10 @@ export const SignUp = createAsyncThunk(
 export const Login = createAsyncThunk(
 	"user/login",
 	async (data, { rejectWithValue }) => {
-		const url = "http://localhost:5000/api/user/login";
 		try {
-			const res = await axios.post(url, data);
+			const res = await axios.post(`${url}/api/user/login`, data);
 			if (!res) return console.log("login failed");
-			// localStorage.setItem(
-			// 	"food-user",
-			// 	JSON.stringify(initialState.currentUser),
-			// );
+
 			return res.data;
 		} catch (error) {
 			if (error.response && error.response.data.message) {
