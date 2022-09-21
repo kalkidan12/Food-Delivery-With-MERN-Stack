@@ -20,7 +20,6 @@ const LogIn = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const submitHandler = async () => {
-		setLoading(true);
 		if (!email || !password) {
 			toast({
 				title: "Please Fill all the Feilds",
@@ -44,11 +43,9 @@ const LogIn = () => {
 					isClosable: true,
 					position: "bottom",
 				});
-				setLoading(false);
-				navigate("/");
+				navigate("/cart");
 				window.location.reload();
 			}
-			setLoading(false);
 		} catch (error) {
 			toast({
 				title: "Error Occured!",
@@ -58,7 +55,6 @@ const LogIn = () => {
 				isClosable: true,
 				position: "bottom",
 			});
-			setLoading(false);
 		}
 	};
 
@@ -94,7 +90,6 @@ const LogIn = () => {
 				width="100%"
 				style={{ marginTop: 15 }}
 				onClick={submitHandler}
-				isLoading={loading}
 			>
 				Login
 			</Button>

@@ -55,7 +55,7 @@ const Signup = () => {
 					isClosable: true,
 					position: "bottom",
 				});
-				navigate("/");
+				navigate("/cart");
 				window.location.reload();
 			}
 		} catch (error) {
