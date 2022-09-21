@@ -48,6 +48,7 @@ const LogIn = () => {
 				navigate("/");
 				window.location.reload();
 			}
+			setLoading(false);
 		} catch (error) {
 			toast({
 				title: "Error Occured!",
