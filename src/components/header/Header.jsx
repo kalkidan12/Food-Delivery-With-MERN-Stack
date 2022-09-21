@@ -23,9 +23,6 @@ function Header() {
 
 	const totalQuantity = localStorage.getItem("totalQuantity");
 	const currentUser = localStorage.getItem("food-user");
-	useEffect(() => {
-		console.log("user");
-	}, [currentUser]);
 
 	return (
 		<Navbar

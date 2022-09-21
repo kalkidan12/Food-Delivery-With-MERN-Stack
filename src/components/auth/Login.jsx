@@ -6,9 +6,10 @@ import { useState } from "react";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Login } from "../../features/slices/UserSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const LogIn = () => {
+	const { success } = useSelector((state) => state.user);
 	const [show, setShow] = useState(false);
 	const handleClick = () => setShow(!show);
 	const toast = useToast();
@@ -35,15 +36,18 @@ const LogIn = () => {
 		try {
 			const data = { email, password };
 			dispatch(Login(data));
-			toast({
-				title: "Login Successful",
-				status: "success",
-				duration: 5000,
-				isClosable: true,
-				position: "bottom",
-			});
-			setLoading(false);
-			navigate("/");
+			if (success) {
+				toast({
+					title: "Login Successful",
+					status: "success",
+					duration: 5000,
+					isClosable: true,
+					position: "bottom",
+				});
+				setLoading(false);
+				navigate("/");
+				window.location.reload();
+			}
 		} catch (error) {
 			toast({
 				title: "Error Occured!",

@@ -3,12 +3,14 @@ import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
-import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SignUp } from "../../features/slices/UserSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Signup = () => {
+	const { success } = useSelector((state) => state.user);
+
 	const [show, setShow] = useState(false);
 	const handleClick = () => setShow(!show);
 	const toast = useToast();
@@ -41,19 +43,21 @@ const Signup = () => {
 			});
 			return;
 		}
-		console.log(first_name, last_name, email, password);
 		const data = { first_name, last_name, email, password };
 		try {
 			//hre
 			dispatch(SignUp(data));
-			toast({
-				title: "Registration Successful",
-				status: "success",
-				duration: 5000,
-				isClosable: true,
-				position: "bottom",
-			});
-			navigate("/");
+			if (success) {
+				toast({
+					title: "Registration Successful",
+					status: "success",
+					duration: 5000,
+					isClosable: true,
+					position: "bottom",
+				});
+				navigate("/");
+				window.location.reload();
+			}
 		} catch (error) {
 			toast({
 				title: "Error Occured!",
